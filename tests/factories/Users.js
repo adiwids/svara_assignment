@@ -11,7 +11,8 @@ const baseAttributes = {
   hobbies: [
     faker.hacker.verb(),
     faker.lorem.word()
-  ]
+  ],
+  lastLogin: null
 }
 
 const validUser = new User(baseAttributes)
@@ -20,5 +21,6 @@ const invalidEmailUser = new User(Object.assign({ email: 'invalid.1' }, baseAttr
 
 module.exports = {
   user: validUser,
-  invalidUser: invalidEmailUser
+  invalidUser: invalidEmailUser,
+  userAttributes: baseAttributes
 }
