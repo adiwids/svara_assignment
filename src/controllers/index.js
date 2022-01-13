@@ -1,5 +1,7 @@
-const citiesController = require("./CitiesController")
+const CitiesController = require("./CitiesController")
+const UsersController = require("./UsersController")
 
 module.exports = {
-  citiesController: citiesController
+  citiesController: CitiesController,
+  usersController: UsersController
 }

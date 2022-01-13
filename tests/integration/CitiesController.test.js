@@ -3,20 +3,22 @@ process.env.NODE_ENV = "test"
 const mongoose = require("mongoose")
 const chai = require("chai")
 const chaiHttp = require("chai-http")
-const should = chai.should()
-const expect = chai.expect()
 const httpStatus = require("http-status")
 const entrypoint = require("../../src/app")
 const { test } = require("../../src/config/environment")
 const City = require("../../src/models/City")
+const { bandungCity, jakartaCity } = require("../factories/Cities")
 
 chai.use(chaiHttp)
+chai.should()
 
 describe("CitiesController", function() {
   before(function() {
     mongoose.connect(test.mongoose.url, test.mongoose.options)
             .then(function() {
               City.deleteMany({})
+              bandungCity.save()
+              jakartaCity.save()
             })
   })
 
